@@ -19,8 +19,9 @@ def profile(func):
         time of the given function or method. '''
         start = time.clock()
         result = func(*args)
-        print "...profiling of '%s': took %f seconds" % (func.__name__, time.clock() - start)
-        return result
+        end = time.clock()
+        print "...profiling of '%s': took %f seconds" % (func.__name__, end - start)
+        return result, end - start
     return decorate
 
 
